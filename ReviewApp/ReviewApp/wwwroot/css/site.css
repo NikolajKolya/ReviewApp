@@ -1,0 +1,15 @@
+body {
+  color: hsl(0, 0%, 32%);
+  background-color: hsl(210, 100%, 95%);
+  font-size: 1rem;
+}
+
+h1 {
+  color: hsl(216, 90%, 39%);
+  font-size: 2rem;
+}
+
+h2 {
+  color: hsl(216, 90%, 39%);
+  font-size: 1.5rem;
+}
