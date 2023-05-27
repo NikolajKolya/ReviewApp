@@ -27,4 +27,11 @@ public class GoodsService : IGoodsService
         var dbGood = _goodsMapper.Map(good);
         await _goodsDao.AddGoodAsync(dbGood);
     }
+
+    public async Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync()
+    {
+        var dbGoods = await _goodsDao.GetAllGoodsAsync();
+
+        return _goodsMapper.Map(dbGoods);
+    }
 }

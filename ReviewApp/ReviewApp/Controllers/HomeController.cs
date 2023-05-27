@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
+using System.Linq;
 
 namespace ReviewApp.Controllers
 {
@@ -24,19 +25,7 @@ namespace ReviewApp.Controllers
         {
             var model = new IndexViewModel()
             {
-                Goods = new List<GoodViewModel>()
-                {
-                    new GoodViewModel()
-                    {
-                        Name = "Fake1",
-                        Description = "Total fake"
-                    },
-                    new GoodViewModel()
-                    {
-                        Name = "Fake2",
-                        Description = "Total fake"
-                    }
-                }
+                Goods = (await _goodsService.GetAllGoodsAsync()).ToList()
             };
             return View(model);
         }

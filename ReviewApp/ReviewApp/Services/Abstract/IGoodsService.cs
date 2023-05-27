@@ -8,4 +8,6 @@ public interface IGoodsService
     /// Add good to DB
     /// </summary>
     Task AddGoodAsync(GoodViewModel good);
+
+    Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync();
 }
