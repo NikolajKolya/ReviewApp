@@ -10,11 +10,11 @@ namespace goods.DAO.Implementations
 {
     public class GoodsDao : IGoodsDao
     {
-        private MainDbContext _mainDbContext;
+        private readonly MainDbContext _mainDbContext;
 
-        public GoodsDao()
+        public GoodsDao(MainDbContext mainDbContext)
         {
-            _mainDbContext = new MainDbContext();
+            _mainDbContext = mainDbContext;
         }
 
         public async Task AddGoodAsync(Good good)

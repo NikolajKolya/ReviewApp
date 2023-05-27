@@ -1,7 +1,9 @@
+using goods.DAO;
 using goods.DAO.Abstract;
 using goods.DAO.Implementations;
 using goods.Mappers.Abstract;
 using goods.Mappers.Implementations;
+using Microsoft.EntityFrameworkCore;
 using ReviewApp.Services.Abstract;
 using ReviewApp.Services.Implementations;
 
@@ -13,6 +15,8 @@ namespace ReviewApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<MainDbContext>();
+            
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

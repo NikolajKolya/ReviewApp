@@ -10,18 +10,17 @@ namespace goods.DAO
 {
     public class MainDbContext : DbContext
     {
-        private string _dbPath;
-
-        public MainDbContext()
+        private readonly IConfiguration _configuration;
+        
+        public MainDbContext(IConfiguration configuration)
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            _dbPath = System.IO.Path.Join(path, "goods.db");
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite($"Data Source={ _dbPath }");
+            // Connect to sqlite database
+            options.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
         }
         
         public DbSet<Good> Goods { get; set; }
