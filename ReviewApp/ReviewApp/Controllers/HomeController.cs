@@ -22,7 +22,23 @@ namespace ReviewApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View();
+            var model = new IndexViewModel()
+            {
+                Goods = new List<GoodViewModel>()
+                {
+                    new GoodViewModel()
+                    {
+                        Name = "Fake1",
+                        Description = "Total fake"
+                    },
+                    new GoodViewModel()
+                    {
+                        Name = "Fake2",
+                        Description = "Total fake"
+                    }
+                }
+            };
+            return View(model);
         }
 
         [HttpGet]

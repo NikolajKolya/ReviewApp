@@ -1,3 +1,13 @@
-﻿<h1>Тут будут обзоры товаров</h1>
+﻿@model ReviewApp.Models.ViewModels.IndexViewModel
+
+<h1>Товары:</h1>
+
+@foreach (var good in Model.Goods)
+{
+    <div class="good">
+        <div class="good-name">@good.Name</div>
+        <div class="good-description">@good.Description</div>
+    </div>
+}
 
 <a asp-controller="Home" asp-action="AddGood" title="Добавить товар">Добавить товар</a>

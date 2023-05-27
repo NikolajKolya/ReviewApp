@@ -13,3 +13,25 @@ h2 {
   color: hsl(216, 90%, 39%);
   font-size: 1.5rem;
 }
+
+/* Good name */
+.good-name {
+  font-size: 2rem;
+}
+
+/* Good description */
+.good-description {
+  font-size: 0.8rem;
+}
+
+.good {
+  background-color: hsl(190, 88%, 57%);
+  border: #0a58ca 0.1rem dashed;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
