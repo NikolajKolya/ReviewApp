@@ -1,15 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using goods.Mappers.Abstract;
+using Microsoft.AspNetCore.Mvc;
 using ReviewApp.Models.ViewModels;
+using ReviewApp.Services.Abstract;
 
 namespace ReviewApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IGoodsService _goodsService;
+        
+        public HomeController
+        (
+            ILogger<HomeController> logger,
+            IGoodsService goodsService
+        )
         {
             _logger = logger;
+            _goodsService = goodsService;
         }
 
         public async Task<IActionResult> Index()
@@ -36,6 +44,8 @@ namespace ReviewApp.Controllers
             {
                 return View("AddGood", viewModel);
             }
+
+            await _goodsService.AddGoodAsync(viewModel);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }

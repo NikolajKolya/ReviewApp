@@ -29,3 +29,11 @@ C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\obj\Debug\ne
 C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\obj\Debug\net7.0\ReviewApp.pdb
 C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\obj\Debug\net7.0\ReviewApp.genruntimeconfig.cache
 C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\obj\Debug\net7.0\ref\ReviewApp.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.Data.Sqlite.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\bin\Debug\net7.0\SQLitePCLRaw.core.dll
+C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp\obj\Debug\net7.0\ReviewApp.csproj.CopyComplete

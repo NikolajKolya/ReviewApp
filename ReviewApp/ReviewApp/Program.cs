@@ -1,3 +1,10 @@
+using goods.DAO.Abstract;
+using goods.DAO.Implementations;
+using goods.Mappers.Abstract;
+using goods.Mappers.Implementations;
+using ReviewApp.Services.Abstract;
+using ReviewApp.Services.Implementations;
+
 namespace ReviewApp
 {
     public class Program
@@ -8,6 +15,19 @@ namespace ReviewApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            #region Scoped
+
+            builder.Services.AddScoped<IGoodsDao, GoodsDao>();
+            builder.Services.AddScoped<IGoodsService, GoodsService>();
+
+            #endregion
+
+            #region Singletons
+
+            builder.Services.AddSingleton<IGoodsMapper, GoodsMapper>();
+
+            #endregion
 
             var app = builder.Build();
 

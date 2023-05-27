@@ -1,20 +1,22 @@
 @model ReviewApp.Models.ViewModels.GoodViewModel
 
 <h1>Добавление товара</h1>
-
+<body>
+    <script src="wwwroot/js/site.js" async defer></script>
+</body>
 <form asp-controller="Home" asp-action="AddGoodPost" method="post">
     
     <div>
         <label asp-for="Name"></label>:
-        <input asp-for="Name" />
+        <input asp-for="Name" id="name" />
     </div>
     
     <div>
         <label asp-for="Description"></label>:
-        <textarea asp-for="Description"></textarea>
+        <textarea asp-for="Description" id="description"></textarea>
     </div>
-    
-    <button type="submit">Добавить</button>
+
+    <button type="submit" id="button">Добавить</button>
     
     @Html.AntiForgeryToken()
 </form>
