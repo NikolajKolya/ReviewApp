@@ -43,14 +43,28 @@ namespace ReviewApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddGoodPost(GoodViewModel viewModel)
+        public async Task<IActionResult> AddGoodPost(GoodViewModel good)
         {
             if (!ModelState.IsValid)
             {
-                return View("AddGood", viewModel);
+                return View("AddGood", good);
             }
 
-            await _goodsService.AddGoodAsync(viewModel);
+            await _goodsService.AddGoodAsync(good);
+            
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveGood(GoodViewModel good)
+        {/*
+            if (!ModelState.IsValid)
+            {
+                return View("AddGood", good);
+            }*/
+
+            await _goodsService.RemoveGoodAsync(good);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }

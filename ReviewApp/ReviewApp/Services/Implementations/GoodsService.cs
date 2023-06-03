@@ -34,4 +34,12 @@ public class GoodsService : IGoodsService
 
         return _goodsMapper.Map(dbGoods);
     }
+
+    public async Task RemoveGoodAsync(GoodViewModel someGood)
+    {
+        _ = someGood ?? throw new ArgumentNullException(nameof(someGood));
+        
+        var dbGood = _goodsMapper.Map(someGood);
+        await _goodsDao.RemoveGoodAsync(dbGood);
+    }
 }

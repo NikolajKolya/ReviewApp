@@ -31,5 +31,13 @@ namespace goods.DAO.Implementations
                 .Goods
                 .ToList();
         }
+
+        public async Task RemoveGoodAsync(Good good)
+        {
+            _ = good ?? throw new ArgumentNullException(nameof(good));
+
+            _mainDbContext.Remove(good);
+            _mainDbContext.SaveChanges();
+        }
     }
 }

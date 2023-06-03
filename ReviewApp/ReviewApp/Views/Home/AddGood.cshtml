@@ -4,19 +4,21 @@
 <body>
     <script src="wwwroot/js/site.js" async defer></script>
 </body>
-<form asp-controller="Home" asp-action="AddGoodPost" method="post">
-    
+<form asp-controller="Home" asp-action="AddGoodPost" method="post" class="addGoodElements">
     <div>
-        <label asp-for="Name"></label>:
-        <input asp-for="Name" id="name" />
-    </div>
-    
-    <div>
-        <label asp-for="Description"></label>:
-        <textarea asp-for="Description" id="description"></textarea>
-    </div>
+        <div>
+            <label asp-for="Name"></label>:
+            <input style="margin: 0.2rem" asp-for="Name" id="name"/>
+        </div>
 
-    <button type="submit" id="button">Добавить</button>
-    
+        <div>
+            <label asp-for="Description"></label>:
+            <textarea asp-for="Description" id="description"></textarea>
+        </div>
+
+        <div class="addGoodElements">
+            <button class="addButton" type="submit" id="button">Добавить</button>
+        </div>
+    </div>
     @Html.AntiForgeryToken()
 </form>

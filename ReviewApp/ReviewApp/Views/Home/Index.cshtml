@@ -2,12 +2,23 @@
 
 <h1>Товары:</h1>
 
-@foreach (var good in Model.Goods)
-{
-    <div class="good">
-        <div class="good-name">@good.Name</div>
-        <div class="good-description">@good.Description</div>
-    </div>
-}
+<div class="overflowForGoods">
+    @foreach (var good in Model.Goods)
+    {
+        <form asp-controller="Home" asp-action="RemoveGood" method="post">
+            
+    <div class="good" style="display: flex">
+            <div>
+                <div type="text" name="name" asp-for="Name" id="name" class="good-name">@good.Name</div>
+                <div type="text" name="description" asp-for="Description" id="description" class="good-description">@good.Description</div>
+            </div>
+        <button class="deleteButton" type="submit" id="button">
+            <img  class="deleteButtonPicture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x" />
+        </button>
+            </div>
+            @Html.AntiForgeryToken()
+        </form>
+    }
+</div>
 
 <a asp-controller="Home" asp-action="AddGood" title="Добавить товар">Добавить товар</a>

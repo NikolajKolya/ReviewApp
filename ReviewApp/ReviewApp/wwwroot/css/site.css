@@ -1,5 +1,6 @@
 body {
   color: hsl(0, 0%, 32%);
+  padding: 4rem;
   background-color: hsl(210, 100%, 95%);
   font-size: 1rem;
 }
@@ -7,11 +8,45 @@ body {
 h1 {
   color: hsl(216, 90%, 39%);
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
   color: hsl(216, 90%, 39%);
   font-size: 1.5rem;
+}
+
+.deleteButtonPicture{
+  width: 1rem;
+  height: 1rem;
+}
+
+.deleteButton{
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  margin-bottom: auto;
+  border: none;
+  background-color: transparent;
+}
+
+.addButton {
+  background-color: hsl(193, 25%, 44%);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.overflowForGoods {
+  border: hsl(170, 7%, 64%) 1px solid;
+  height: 30rem;
+  overflow: auto;
 }
 
 /* Good name */
@@ -28,10 +63,16 @@ h2 {
   background-color: hsl(190, 88%, 57%);
   border: #0a58ca 0.1rem dashed;
   border-radius: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.addGoodElements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
 }
