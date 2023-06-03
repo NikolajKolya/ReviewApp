@@ -8,8 +8,10 @@ namespace goods.DAO.Abstract
     {
         Task AddGoodAsync(Good good);
 
-        Task RemoveGoodAsync(Good good);
+        Task RemoveGoodAsync(Guid Id);
 
         Task<IReadOnlyCollection<Good>> GetAllGoodsAsync();
+
+        Good GetGoodById(Guid Id);
     }
 }

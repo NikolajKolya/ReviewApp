@@ -28,6 +28,7 @@ namespace goods.Mappers.Implementations
 
             return new ReviewApp.Models.ViewModels.GoodViewModel()
             {
+                Id = good.Id,
                 Name = good.Name,
                 Description = good.Description
             };
@@ -42,6 +43,7 @@ namespace goods.Mappers.Implementations
 
             return new DAO.Models.Good()
             {
+                Id = good.Id,
                 Name = good.Name,
                 Description = good.Description
             };

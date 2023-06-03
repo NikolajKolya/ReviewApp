@@ -57,14 +57,12 @@ namespace ReviewApp.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> RemoveGood(GoodViewModel good)
-        {/*
-            if (!ModelState.IsValid)
-            {
-                return View("AddGood", good);
-            }*/
+        public async Task<IActionResult> RemoveGood(String IdString)
+        {
 
-            await _goodsService.RemoveGoodAsync(good);
+            var id = Guid.Parse(IdString);
+
+            await _goodsService.RemoveGoodAsync(id);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }

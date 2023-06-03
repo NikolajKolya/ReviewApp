@@ -6,6 +6,11 @@ public class GoodViewModel
 {
     [Required]
     [DataType(DataType.Text)]
+    [Display(Name = "Id")]
+    public Guid Id { get; set; }
+
+    [Required]
+    [DataType(DataType.Text)]
     [Display(Name = "Название")]
     public string Name { get; set; }
 

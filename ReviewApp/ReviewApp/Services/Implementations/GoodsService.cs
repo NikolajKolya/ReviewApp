@@ -1,4 +1,5 @@
 ﻿using goods.DAO.Abstract;
+using goods.DAO.Models;
 using goods.Mappers.Abstract;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
@@ -35,11 +36,8 @@ public class GoodsService : IGoodsService
         return _goodsMapper.Map(dbGoods);
     }
 
-    public async Task RemoveGoodAsync(GoodViewModel someGood)
+    public async Task RemoveGoodAsync(Guid Id)
     {
-        _ = someGood ?? throw new ArgumentNullException(nameof(someGood));
-        
-        var dbGood = _goodsMapper.Map(someGood);
-        await _goodsDao.RemoveGoodAsync(dbGood);
+        await _goodsDao.RemoveGoodAsync(Id);
     }
 }
