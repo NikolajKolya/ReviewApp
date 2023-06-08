@@ -10,8 +10,9 @@
             <div>
                 <div class="good-name">@good.Name</div>
                 <div class="good-description">@good.Description</div>
-                    <input type="text" name="IdString" value="@good.Id.ToString()" ></input>
+                    <input type="hidden" name="IdString" value="@good.Id.ToString()" ></input>
             </div>
+                <div class="timeSpan">@good.TimeSpan</div>
         <button class="deleteButton" type="submit" id="button">
             <img  class="deleteButtonPicture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x" />
         </button>

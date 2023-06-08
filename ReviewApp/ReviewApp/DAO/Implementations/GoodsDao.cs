@@ -28,6 +28,7 @@ namespace goods.DAO.Implementations
         {
             return _mainDbContext
                 .Goods
+                .OrderByDescending(b => b.TimeSpan)
                 .ToList();
         }
 

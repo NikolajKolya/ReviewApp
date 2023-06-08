@@ -18,4 +18,9 @@ public class GoodViewModel
     [DataType(DataType.Text)]
     [Display(Name = "Описание")]
     public string Description { get; set; }
+
+    [Required]
+    [DataType(DataType.Text)]
+    [Display(Name = "Время")]
+    public DateTime TimeSpan { get; set; }
 }

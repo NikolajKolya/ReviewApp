@@ -66,6 +66,10 @@
             "SQLitePCLRaw.core": {
               "target": "Package",
               "version": "[2.1.5, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.117, )"
             }
           },
           "imports": [

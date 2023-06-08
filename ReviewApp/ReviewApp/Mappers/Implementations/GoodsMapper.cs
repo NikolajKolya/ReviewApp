@@ -30,7 +30,8 @@ namespace goods.Mappers.Implementations
             {
                 Id = good.Id,
                 Name = good.Name,
-                Description = good.Description
+                Description = good.Description,
+                TimeSpan = good.TimeSpan
             };
         }
 
@@ -45,7 +46,8 @@ namespace goods.Mappers.Implementations
             {
                 Id = good.Id,
                 Name = good.Name,
-                Description = good.Description
+                Description = good.Description,
+                TimeSpan = good.TimeSpan
             };
         }
 

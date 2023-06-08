@@ -1,6 +1,6 @@
-﻿using goods.DAO.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using goods.DAO.Models;
 
 namespace goods.DAO.Abstract
 {

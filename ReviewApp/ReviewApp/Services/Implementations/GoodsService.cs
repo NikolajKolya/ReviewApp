@@ -26,6 +26,7 @@ public class GoodsService : IGoodsService
         _ = good ?? throw new ArgumentNullException(nameof(good));
 
         var dbGood = _goodsMapper.Map(good);
+        dbGood.TimeSpan = DateTime.UtcNow;
         await _goodsDao.AddGoodAsync(dbGood);
     }
 
