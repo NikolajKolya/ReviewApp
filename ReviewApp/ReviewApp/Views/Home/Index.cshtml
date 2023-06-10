@@ -5,20 +5,22 @@
 <div class="overflowForGoods">
     @foreach (var good in Model.Goods)
     {
-        <form asp-controller="Home" asp-action="RemoveGood" method="post">
-    <div class="good" style="display: flex">
+        <div class="good" style="display: flex">
             <div>
                 <div class="good-name">@good.Name</div>
                 <div class="good-description">@good.Description</div>
-                    <input type="hidden" name="IdString" value="@good.Id.ToString()" ></input>
             </div>
-                <div class="timeSpan">@good.TimeSpan</div>
-        <button class="deleteButton" type="submit" id="button">
-            <img  class="deleteButtonPicture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x" />
-        </button>
-            </div>
-            @Html.AntiForgeryToken()
-        </form>
+            <div class="timeSpan">@good.TimeSpan</div>
+            
+            <form asp-controller="Home" asp-action="RemoveGood" method="post">
+                <button class="deleteButton" type="submit" id="button">
+                    <img class="deleteButtonPicture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x" />
+                </button>
+                
+                <input type="hidden" name="id" value="@good.Id"/>
+                @Html.AntiForgeryToken()
+            </form>
+        </div>
     }
 </div>
 

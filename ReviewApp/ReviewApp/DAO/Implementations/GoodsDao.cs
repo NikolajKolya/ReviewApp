@@ -21,7 +21,7 @@ namespace goods.DAO.Implementations
             _ = good ?? throw new ArgumentNullException(nameof(good));
 
             _mainDbContext.Add(good);
-            _mainDbContext.SaveChanges();
+            await _mainDbContext.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyCollection<Good>> GetAllGoodsAsync()
@@ -32,25 +32,19 @@ namespace goods.DAO.Implementations
                 .ToList();
         }
 
-        public async Task RemoveGoodAsync(Guid Id)
+        public async Task RemoveGoodAsync(Guid id)
         {
 
-            var taskGood = GetGoodById(Id);
-            var good = new Good
-            {
-                Id = taskGood.Id,
-                Name = taskGood.Name,
-                Description = taskGood.Description
-            };
+            var good = await GetGoodByIdAsync(id);
             _mainDbContext.Remove(good);
-            _mainDbContext.SaveChanges();
+            await _mainDbContext.SaveChangesAsync();
         }
 
-        public Good GetGoodById(Guid Id)
+        public async Task<Good> GetGoodByIdAsync(Guid id)
         {
             return _mainDbContext
                 .Goods
-                .Single(g => g.Id == Id);
+                .Single(g => g.Id == id);
         }
     }
 }

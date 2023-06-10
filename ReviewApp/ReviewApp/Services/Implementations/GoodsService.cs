@@ -37,8 +37,8 @@ public class GoodsService : IGoodsService
         return _goodsMapper.Map(dbGoods);
     }
 
-    public async Task RemoveGoodAsync(Guid Id)
+    public async Task RemoveGoodAsync(Guid id)
     {
-        await _goodsDao.RemoveGoodAsync(Id);
+        await _goodsDao.RemoveGoodAsync(id);
     }
 }

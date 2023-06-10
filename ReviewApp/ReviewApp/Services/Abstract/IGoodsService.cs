@@ -9,7 +9,7 @@ public interface IGoodsService
     /// </summary>
     Task AddGoodAsync(GoodViewModel good);
 
-    Task RemoveGoodAsync(Guid Id);
+    Task RemoveGoodAsync(Guid id);
 
     Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync();
 }

@@ -57,12 +57,11 @@ namespace ReviewApp.Controllers
 
 
         [HttpPost]
-        public async Task RemoveGood(String IdString)
+        public async Task<IActionResult> RemoveGood(Guid id)
         {
-
-            var id = Guid.Parse(IdString);
-
             await _goodsService.RemoveGoodAsync(id);
+            
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }
 }
