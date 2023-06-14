@@ -29,7 +29,9 @@ namespace ReviewApp.Controllers
         {
             var model = new IndexViewModel()
             {
-                Goods = (await _goodsService.GetAllGoodsAsync()).ToList()
+                Goods = (await _goodsService.GetAllGoodsAsync())
+                    .Select(g => new GoodViewModel() { Good = g })
+                    .ToList()
             };
             return View(model);
         }
@@ -39,8 +41,11 @@ namespace ReviewApp.Controllers
         {
             var model = new GoodViewModel()
             {
-                Name = string.Empty,
-                Description = string.Empty
+                Good = new GoodDto()
+                {
+                    Name = string.Empty,
+                    Description = string.Empty
+                }
             };
             
             return View(model);
@@ -80,19 +85,18 @@ namespace ReviewApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddGoodPost(GoodViewModel good)
+        public async Task<IActionResult> AddGoodPost(GoodViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("AddGood", good);
+                return View("AddGood", model);
             }
 
-            await _goodsService.AddGoodAsync(good);
+            await _goodsService.AddGoodAsync(model.Good);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
-
-
+        
         [HttpPost]
         public async Task<IActionResult> RemoveGood(Guid id)
         {

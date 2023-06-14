@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ReviewApp.Models.Dto;
 
 namespace goods.Mappers.Abstract
 {
@@ -7,12 +8,12 @@ namespace goods.Mappers.Abstract
     /// </summary>
     public interface IGoodsMapper
     {
-        IReadOnlyCollection<ReviewApp.Models.ViewModels.GoodViewModel> Map(IEnumerable<DAO.Models.Good> goods);
+        IReadOnlyCollection<GoodDto> Map(IEnumerable<DAO.Models.Good> goods);
 
-        ReviewApp.Models.ViewModels.GoodViewModel Map(DAO.Models.Good good);
+        GoodDto Map(DAO.Models.Good good);
 
-        DAO.Models.Good Map(ReviewApp.Models.ViewModels.GoodViewModel good);
+        DAO.Models.Good Map(GoodDto good);
 
-        IReadOnlyCollection<DAO.Models.Good> Map(IEnumerable<ReviewApp.Models.ViewModels.GoodViewModel> goods);
+        IReadOnlyCollection<DAO.Models.Good> Map(IEnumerable<GoodDto> goods);
     }
 }

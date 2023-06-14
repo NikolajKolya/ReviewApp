@@ -1,6 +1,7 @@
 ﻿using goods.DAO.Abstract;
 using goods.DAO.Models;
 using goods.Mappers.Abstract;
+using ReviewApp.Models.Dto;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
 
@@ -21,7 +22,7 @@ public class GoodsService : IGoodsService
         _goodsDao = goodsDao;
     }
     
-    public async Task AddGoodAsync(GoodViewModel good)
+    public async Task AddGoodAsync(GoodDto good)
     {
         _ = good ?? throw new ArgumentNullException(nameof(good));
 
@@ -30,14 +31,14 @@ public class GoodsService : IGoodsService
         await _goodsDao.AddGoodAsync(dbGood);
     }
 
-    public async Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync()
+    public async Task<IReadOnlyCollection<GoodDto>> GetAllGoodsAsync()
     {
         var dbGoods = await _goodsDao.GetAllGoodsAsync();
 
         return _goodsMapper.Map(dbGoods);
     }
 
-    public async Task<GoodViewModel> GetGoodByIdAsync(Guid id)
+    public async Task<GoodDto> GetGoodByIdAsync(Guid id)
     {
         return _goodsMapper.Map(await _goodsDao.GetGoodByIdAsync(id));
     }

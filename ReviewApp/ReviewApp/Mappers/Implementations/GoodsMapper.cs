@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ReviewApp.Models.Dto;
 
 namespace goods.Mappers.Implementations
 {
     public class GoodsMapper : IGoodsMapper
     {
-        public IReadOnlyCollection<ReviewApp.Models.ViewModels.GoodViewModel> Map(IEnumerable<DAO.Models.Good> goods)
+        public IReadOnlyCollection<GoodDto> Map(IEnumerable<DAO.Models.Good> goods)
         {
             if (goods == null)
             {
@@ -19,14 +20,14 @@ namespace goods.Mappers.Implementations
             return goods.Select(n => Map(n)).ToList();
         }
 
-        public ReviewApp.Models.ViewModels.GoodViewModel Map(DAO.Models.Good good)
+        public GoodDto Map(DAO.Models.Good good)
         {
             if (good == null)
             {
                 return null;
             }
 
-            return new ReviewApp.Models.ViewModels.GoodViewModel()
+            return new GoodDto()
             {
                 Id = good.Id,
                 Name = good.Name,
@@ -35,7 +36,7 @@ namespace goods.Mappers.Implementations
             };
         }
 
-        public DAO.Models.Good Map(ReviewApp.Models.ViewModels.GoodViewModel good)
+        public DAO.Models.Good Map(GoodDto good)
         {
             if (good == null)
             {
@@ -51,7 +52,7 @@ namespace goods.Mappers.Implementations
             };
         }
 
-        public IReadOnlyCollection<DAO.Models.Good> Map(IEnumerable<ReviewApp.Models.ViewModels.GoodViewModel> goods)
+        public IReadOnlyCollection<DAO.Models.Good> Map(IEnumerable<GoodDto> goods)
         {
             if (goods == null)
             {

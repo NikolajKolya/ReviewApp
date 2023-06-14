@@ -1,4 +1,5 @@
-﻿using ReviewApp.Models.ViewModels;
+﻿using ReviewApp.Models.Dto;
+using ReviewApp.Models.ViewModels;
 
 namespace ReviewApp.Services.Abstract;
 
@@ -7,11 +8,11 @@ public interface IGoodsService
     /// <summary>
     /// Add good to DB
     /// </summary>
-    Task AddGoodAsync(GoodViewModel good);
+    Task AddGoodAsync(GoodDto good);
 
     Task RemoveGoodAsync(Guid id);
 
-    Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync();
+    Task<IReadOnlyCollection<GoodDto>> GetAllGoodsAsync();
 
-    Task<GoodViewModel> GetGoodByIdAsync(Guid id);
+    Task<GoodDto> GetGoodByIdAsync(Guid id);
 }
