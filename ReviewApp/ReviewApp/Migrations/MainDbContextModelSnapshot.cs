@@ -17,6 +17,29 @@ namespace ReviewApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
 
+            modelBuilder.Entity("goods.DAO.Models.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("GoodId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GoodId");
+
+                    b.ToTable("Comments", (string)null);
+                });
+
             modelBuilder.Entity("goods.DAO.Models.Good", b =>
                 {
                     b.Property<Guid>("Id")
@@ -36,7 +59,23 @@ namespace ReviewApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Goods");
+                    b.ToTable("Goods", (string)null);
+                });
+
+            modelBuilder.Entity("goods.DAO.Models.Comment", b =>
+                {
+                    b.HasOne("goods.DAO.Models.Good", "Good")
+                        .WithMany("Comments")
+                        .HasForeignKey("GoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Good");
+                });
+
+            modelBuilder.Entity("goods.DAO.Models.Good", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

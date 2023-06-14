@@ -12,7 +12,7 @@
             </div>
             <div class="timeSpanAndAddCommentLink">
                 <div >@good.TimeSpan</div>
-                <a asp-controller="Home" asp-action="AddComment" asp-route-guid="@good.Id" title="Добавить отзыв">Добавить отзыв</a>
+                <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Id" title="Добавить отзыв">Добавить отзыв</a>
             </div>
             
             <form asp-controller="Home" asp-action="RemoveGood" method="post">

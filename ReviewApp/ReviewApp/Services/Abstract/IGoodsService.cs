@@ -12,4 +12,6 @@ public interface IGoodsService
     Task RemoveGoodAsync(Guid id);
 
     Task<IReadOnlyCollection<GoodViewModel>> GetAllGoodsAsync();
+
+    Task<GoodViewModel> GetGoodByIdAsync(Guid id);
 }

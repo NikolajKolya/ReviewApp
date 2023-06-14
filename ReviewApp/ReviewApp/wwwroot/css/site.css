@@ -8,14 +8,13 @@ body {
 h1 {
   color: hsl(216, 90%, 39%);
   font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 h2 {
   color: hsl(216, 90%, 39%);
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .deleteButtonPicture{
@@ -35,7 +34,7 @@ h2 {
   background-color: hsl(193, 25%, 44%);
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 0.5rem 0.5rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -76,7 +75,19 @@ h2 {
   padding: 0.2rem;
 }
 
+/* Centrally-aligned text */
+.centrally-aligned {
+  text-align: center;
+}
+
 .timeSpanAndAddCommentLink {
     margin-left: auto;
     margin-bottom: auto;
+}
+
+.add-comment-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
 }

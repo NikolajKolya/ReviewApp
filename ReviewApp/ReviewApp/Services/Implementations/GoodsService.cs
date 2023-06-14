@@ -37,6 +37,11 @@ public class GoodsService : IGoodsService
         return _goodsMapper.Map(dbGoods);
     }
 
+    public async Task<GoodViewModel> GetGoodByIdAsync(Guid id)
+    {
+        return _goodsMapper.Map(await _goodsDao.GetGoodByIdAsync(id));
+    }
+
     public async Task RemoveGoodAsync(Guid id)
     {
         await _goodsDao.RemoveGoodAsync(id);

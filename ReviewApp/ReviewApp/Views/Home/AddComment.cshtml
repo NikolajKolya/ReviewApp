@@ -1,20 +1,27 @@
-@model ReviewApp.Models.Dto.CommentDto
+@model ReviewApp.Models.ViewModels.AddCommentViewModel
 
-<h1>Добавление отзыв</h1>
-<body>
-    <script src="wwwroot/js/site.js" async defer></script>
-</body>
-<form asp-controller="Home" asp-action="AddCommentPost" method="post" class="addGoodElements">
+<h1>Добавление отзыва</h1>
+
+<h2>Товар: @Model.GoodName</h2>
+
+<form asp-controller="Home" asp-action="AddCommentPost" method="post" class="add-comment-form">
     <div>
+        <div asp-validation-summary="All"></div>
+        
         <div>
-            <label asp-for="Content"></label>:
-            <textarea asp-for="Content" id="content"></textarea>
+            <label asp-for="Comment.Content"></label>:
+            <textarea asp-for="Comment.Content"></textarea>
         </div>
-        <input asp-for="Rating" id="rating" type="hidden" value="5"/>
-        <input asp-for="Id" type="hidden" name="id" value="@Model.Id"/>
-        <div class="addGoodElements">
+
+        <input asp-for="Comment.Rating" type="hidden" value="5"/>
+
+        <input asp-for="GoodId" type="hidden" value="@Model.GoodId"/>
+        <input asp-for="GoodName" type="hidden" value="@Model.GoodName"/>
+
+        <div>
             <button class="addButton" type="submit" id="button">Добавить</button>
         </div>
     </div>
+
     @Html.AntiForgeryToken()
 </form>

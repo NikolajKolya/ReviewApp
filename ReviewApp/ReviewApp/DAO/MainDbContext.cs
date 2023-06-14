@@ -24,5 +24,7 @@ namespace goods.DAO
         }
         
         public DbSet<Good> Goods { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
     }
 }

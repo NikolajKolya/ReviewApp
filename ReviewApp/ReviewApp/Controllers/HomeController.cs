@@ -46,27 +46,35 @@ namespace ReviewApp.Controllers
             return View(model);
         }
         
+        [Route("Home/AddComment/{id}")]
         [HttpGet]
-        public async Task<IActionResult> AddComment()
+        public async Task<IActionResult> AddComment(Guid id)
         {
-            var model = new CommentDto()
-            {
-                Content = string.Empty,
-                Rating = 5
-            };
+            var good = await _goodsService.GetGoodByIdAsync(id);
             
+            var model = new AddCommentViewModel()
+            {
+                GoodId = id,
+                GoodName = good.Name,
+                Comment = new CommentDto()
+                {
+                    Content = string.Empty,
+                    Rating = 5
+                }
+            };
+
             return View(model);
         }
-        
+
         [HttpPost]
-        public async Task<IActionResult> AddCommentPost(CommentDto comment)
+        public async Task<IActionResult> AddCommentPost(AddCommentViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("AddComment", comment);
+                return View("AddComment", model);
             }
 
-            await _commentsService.AddCommentToGoodAsync(comment, comment.Id);
+            await _commentsService.AddCommentToGoodAsync(model.Comment, model.GoodId);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
