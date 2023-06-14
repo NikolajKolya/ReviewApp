@@ -1,0 +1,20 @@
+@model ReviewApp.Models.Dto.CommentDto
+
+<h1>Добавление отзыв</h1>
+<body>
+    <script src="wwwroot/js/site.js" async defer></script>
+</body>
+<form asp-controller="Home" asp-action="AddCommentPost" method="post" class="addGoodElements">
+    <div>
+        <div>
+            <label asp-for="Content"></label>:
+            <textarea asp-for="Content" id="content"></textarea>
+        </div>
+        <input asp-for="Rating" id="rating" type="hidden" value="5"/>
+        <input asp-for="Id" type="hidden" name="id" value="@Model.Id"/>
+        <div class="addGoodElements">
+            <button class="addButton" type="submit" id="button">Добавить</button>
+        </div>
+    </div>
+    @Html.AntiForgeryToken()
+</form>

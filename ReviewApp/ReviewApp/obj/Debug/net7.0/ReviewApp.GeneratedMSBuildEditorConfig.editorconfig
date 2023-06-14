@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Kaludjerovic\Desktop\Lessons\ReviewApp\ReviewApp\ReviewApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Kaludjerovic/Desktop/Lessons/ReviewApp/ReviewApp/ReviewApp/Views/Home/AddComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRDb21tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Kaludjerovic/Desktop/Lessons/ReviewApp/ReviewApp/ReviewApp/Views/Home/AddGood.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRHb29kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

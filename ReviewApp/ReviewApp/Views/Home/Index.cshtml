@@ -10,7 +10,10 @@
                 <div class="good-name">@good.Name</div>
                 <div class="good-description">@good.Description</div>
             </div>
-            <div class="timeSpan">@good.TimeSpan</div>
+            <div class="timeSpanAndAddCommentLink">
+                <div >@good.TimeSpan</div>
+                <a asp-controller="Home" asp-action="AddComment" asp-route-guid="@good.Id" title="Добавить отзыв">Добавить отзыв</a>
+            </div>
             
             <form asp-controller="Home" asp-action="RemoveGood" method="post">
                 <button class="deleteButton" type="submit" id="button">

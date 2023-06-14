@@ -23,13 +23,16 @@ namespace ReviewApp
             #region Scoped
 
             builder.Services.AddScoped<IGoodsDao, GoodsDao>();
+            builder.Services.AddScoped<ICommentsDao, CommentsDao>();
             builder.Services.AddScoped<IGoodsService, GoodsService>();
+            builder.Services.AddScoped<ICommentsService, CommentsService>();
 
             #endregion
 
             #region Singletons
 
             builder.Services.AddSingleton<IGoodsMapper, GoodsMapper>();
+            builder.Services.AddSingleton<ICommentsMapper, CommentsMapper>();
 
             #endregion
 

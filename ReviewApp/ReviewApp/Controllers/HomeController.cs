@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
 using System.Linq;
+using ReviewApp.Models.Dto;
 
 namespace ReviewApp.Controllers
 {
@@ -10,15 +11,18 @@ namespace ReviewApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IGoodsService _goodsService;
+        private readonly ICommentsService _commentsService;
         
         public HomeController
         (
             ILogger<HomeController> logger,
-            IGoodsService goodsService
+            IGoodsService goodsService,
+            ICommentsService commentsService
         )
         {
             _logger = logger;
             _goodsService = goodsService;
+            _commentsService = commentsService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,6 +44,31 @@ namespace ReviewApp.Controllers
             };
             
             return View(model);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> AddComment()
+        {
+            var model = new CommentDto()
+            {
+                Content = string.Empty,
+                Rating = 5
+            };
+            
+            return View(model);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> AddCommentPost(CommentDto comment)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("AddComment", comment);
+            }
+
+            await _commentsService.AddCommentToGoodAsync(comment, comment.Id);
+            
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         [HttpPost]
@@ -63,5 +92,6 @@ namespace ReviewApp.Controllers
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+        
     }
 }
