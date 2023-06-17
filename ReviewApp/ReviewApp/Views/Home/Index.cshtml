@@ -2,28 +2,41 @@
 
 <h1>Товары:</h1>
 
-<div class="overflowForGoods">
+<div class="over-flow-for-goods">
     @foreach (var good in Model.Goods)
     {
-        <div class="good" style="display: flex">
-            <div>
-                <div class="good-name">@good.Good.Name</div>
-                <div class="good-description">@good.Good.Description</div>
+        <div class="good">
+            <table>
+                <tbody>
+                <td>
+                    <tr>
+                        <div class="flex-display">
+                            <div>
+                                <div class="good-name">@good.Good.Name</div>
+                                <div class="good-description">@good.Good.Description</div>
+                            </div>
+                            <div class="time-span-and-add-comment-link">
+                                <div >@good.Good.TimeSpan</div>
+                                <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Good.Id" title="Добавить отзыв">Добавить отзыв</a>
+                            </div>
+
+                            <form asp-controller="Home" asp-action="RemoveGood" method="post">
+                                <button class="delete-button" type="submit">
+                                    <img class="delete-button-picture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x"/>
+                                </button>
+
+                                <input type="hidden" name="id" value="@good.Good.Id"/>
+                                @Html.AntiForgeryToken()
+                            </form>
+                        </div>
+                    </tr>
+                    <tr>
+                        <a asp-controller="Home" asp-action="Comments" asp-route-id="@good.Good.Id" title="Показать еще">Показать еще</a>
+                    </tr>
+                </td>
+                </tbody>
+            </table>
             </div>
-            <div class="timeSpanAndAddCommentLink">
-                <div >@good.Good.TimeSpan</div>
-                <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Good.Id" title="Добавить отзыв">Добавить отзыв</a>
-            </div>
-            
-            <form asp-controller="Home" asp-action="RemoveGood" method="post">
-                <button class="deleteButton" type="submit">
-                    <img class="deleteButtonPicture" src="https://free-png.ru/wp-content/uploads/2022/01/free-png.ru-388-340x257.png" alt="x" />
-                </button>
-                
-                <input type="hidden" name="id" value="@good.Good.Id"/>
-                @Html.AntiForgeryToken()
-            </form>
-        </div>
     }
 </div>
 

@@ -51,6 +51,18 @@ namespace ReviewApp.Controllers
             return View(model);
         }
         
+        [Route("Home/Comments/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> Comments(Guid id)
+        {
+            var model = new CommentsViewModel()
+            {
+                Comments = (await _commentsService.GetAllCommentsAsync(id))
+            };
+            
+            return View(model);
+        }
+        
         [Route("Home/AddComment/{id}")]
         [HttpGet]
         public async Task<IActionResult> AddComment(Guid id)

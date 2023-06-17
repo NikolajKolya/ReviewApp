@@ -1,7 +1,8 @@
 body {
   color: hsl(0, 0%, 32%);
-  padding: 4rem;
   background-color: hsl(210, 100%, 95%);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-size: 1rem;
 }
 
@@ -17,12 +18,35 @@ h2 {
   text-align: center;
 }
 
-.deleteButtonPicture{
+.generic-button {
+  border: hsl(216, 90%, 39%) 0.1rem solid;
+  border-radius: 0.5rem;
+  background: hsl(210, 100%, 90%);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.generic-button:hover {
+  background: hsl(210, 100%, 95%);
+}
+
+.validation-summary {
+  color: hsl(216, 90%, 39%);
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.delete-button-picture{
   width: 1rem;
   height: 1rem;
 }
 
-.deleteButton{
+.delete-button{
   width: 1rem;
   height: 1rem;
   margin-bottom: auto;
@@ -30,7 +54,7 @@ h2 {
   background-color: transparent;
 }
 
-.addButton {
+.add-comment-button {
   background-color: hsl(193, 25%, 44%);
   border: none;
   color: white;
@@ -38,13 +62,16 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 0.95rem;
 }
 
-.overflowForGoods {
-  border: hsl(170, 7%, 64%) 1px solid;
-  height: 30rem;
-  overflow: auto;
+.add-comment-button:hover {
+  background-color: hsl(193, 25%, 24%);
+  font-size: 1rem;
+}
+
+.flex-display{
+  display: flex;
 }
 
 /* Good name */
@@ -68,7 +95,7 @@ h2 {
   padding-bottom: 0.5rem;
 }
 
-.addGoodElements {
+.add-good-elements {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +107,7 @@ h2 {
   text-align: center;
 }
 
-.timeSpanAndAddCommentLink {
+.time-span-and-add-comment-link {
     margin-left: auto;
     margin-bottom: auto;
 }
@@ -90,4 +117,8 @@ h2 {
   justify-content: center;
   align-items: center;
   padding: 0.2rem;
+}
+
+.full-width {
+  width: 100%;
 }

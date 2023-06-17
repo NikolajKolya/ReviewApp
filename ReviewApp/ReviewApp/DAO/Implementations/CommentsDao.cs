@@ -1,5 +1,6 @@
 ﻿using goods.DAO.Abstract;
 using goods.DAO.Models;
+using ReviewApp.Views.Home;
 
 namespace goods.DAO.Implementations;
 
@@ -18,5 +19,13 @@ public class CommentsDao : ICommentsDao
 
         _mainDbContext.Add(comment);
         await _mainDbContext.SaveChangesAsync();
+    }
+
+    public async Task<List<Comment>> GetAllCommentsAsync(Guid goodId)
+    {
+        return _mainDbContext
+            .Comments
+            .Where(c => c.Good.Id == goodId)
+            .ToList();
     }
 }

@@ -2,21 +2,23 @@
 
 <h1>Добавление товара</h1>
 
-<form asp-controller="Home" asp-action="AddGoodPost" method="post" class="addGoodElements">
-    <div>
-        <div>
-            <label asp-for="Good.Name"></label>:
-            <input style="margin: 0.2rem" asp-for="Good.Name" />
-        </div>
-
-        <div>
-            <label asp-for="Good.Description"></label>:
-            <textarea asp-for="Good.Description"></textarea>
-        </div>
-
-        <div>
-            <button class="addButton" type="submit" id="button">Добавить</button>
-        </div>
+<form asp-controller="Home" asp-action="AddGoodPost" method="post">
+    
+    <div class="validation-summary" asp-validation-summary="All"></div>
+    
+    <div class="form-group">
+        <div><label asp-for="Good.Name"></label>:</div>
+        <div><input class="full-width" asp-for="Good.Name"/></div>
     </div>
+    
+    <div class="form-group">
+        <div><label asp-for="Good.Description"></label>:</div>
+        <div><textarea class="full-width" asp-for="Good.Description"></textarea></div>
+    </div>
+        
+    <div>
+        <button class="generic-button" type="submit">Добавить</button>
+    </div>
+    
     @Html.AntiForgeryToken()
 </form>

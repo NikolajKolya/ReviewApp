@@ -1,5 +1,6 @@
 ﻿using goods.DAO;
 using goods.DAO.Abstract;
+using goods.DAO.Models;
 using goods.Mappers.Abstract;
 using ReviewApp.Models.Dto;
 using ReviewApp.Services.Abstract;
@@ -32,5 +33,10 @@ public class CommentsService : ICommentsService
         commentDb.Good = good;
         
         await _commentsDao.AddCommentAsync(commentDb);
+    }
+
+    public async Task<IReadOnlyCollection<CommentDto>> GetAllCommentsAsync(Guid goodId)
+    {
+        return _commentsMapper.Map(await _commentsDao.GetAllCommentsAsync(goodId));
     }
 }

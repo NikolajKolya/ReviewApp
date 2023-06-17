@@ -5,13 +5,11 @@
 <h2>Товар: @Model.GoodName</h2>
 
 <form asp-controller="Home" asp-action="AddCommentPost" method="post" class="add-comment-form">
-    <div>
-        <div asp-validation-summary="All"></div>
+    <div class="full-width">
+        <div asp-validation-summary="All" class="validation-summary"></div>
         
-        <div>
-            <label asp-for="Comment.Content"></label>:
-            <textarea asp-for="Comment.Content"></textarea>
-        </div>
+        <label asp-for="Comment.Content"></label>:
+        <textarea asp-for="Comment.Content" class="full-width"></textarea>
 
         <input asp-for="Comment.Rating" type="hidden" value="5"/>
 
@@ -19,7 +17,7 @@
         <input asp-for="GoodName" type="hidden" value="@Model.GoodName"/>
 
         <div>
-            <button class="addButton" type="submit" id="button">Добавить</button>
+            <button class="add-comment-button" type="submit" id="button">Добавить</button>
         </div>
     </div>
 
