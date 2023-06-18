@@ -39,4 +39,9 @@ public class CommentsService : ICommentsService
     {
         return _commentsMapper.Map(await _commentsDao.GetAllCommentsAsync(goodId));
     }
+
+    public async Task<CommentDto> GetLastCommentsAsync(Guid goodId)
+    {
+        return _commentsMapper.Map(await _commentsDao.GetLastCommentsAsync(goodId));
+    }
 }

@@ -1,4 +1,5 @@
-﻿using goods.DAO.Abstract;
+﻿using System.Collections;
+using goods.DAO.Abstract;
 using goods.DAO.Models;
 using ReviewApp.Views.Home;
 
@@ -27,5 +28,17 @@ public class CommentsDao : ICommentsDao
             .Comments
             .Where(c => c.Good.Id == goodId)
             .ToList();
+    }
+
+    public async Task<Comment> GetLastCommentsAsync(Guid goodId)
+    {
+        var comments = (await GetAllCommentsAsync(goodId));
+        if (comments.Count == 0)
+        {
+            return new Comment();
+        }
+
+        var lastComment = comments.Last();
+        return lastComment;
     }
 }

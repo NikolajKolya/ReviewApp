@@ -6,15 +6,12 @@
     @foreach (var good in Model.Goods)
     {
         <div class="good">
-            <table>
-                <tbody>
-                <td>
-                    <tr>
-                        <div class="flex-display">
-                            <div>
-                                <div class="good-name">@good.Good.Name</div>
-                                <div class="good-description">@good.Good.Description</div>
-                            </div>
+            <div>
+                <div class="flex-display">
+                    <div>
+                        <div class="good-name">@good.Good.Name</div>
+                        <div class="good-description">@good.Good.Description</div>
+                        </div>
                             <div class="time-span-and-add-comment-link">
                                 <div >@good.Good.TimeSpan</div>
                                 <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Good.Id" title="Добавить отзыв">Добавить отзыв</a>
@@ -29,14 +26,28 @@
                                 @Html.AntiForgeryToken()
                             </form>
                         </div>
-                    </tr>
-                    <tr>
-                        <a asp-controller="Home" asp-action="Comments" asp-route-id="@good.Good.Id" title="Показать еще">Показать еще</a>
-                    </tr>
-                </td>
-                </tbody>
-            </table>
+                    </div>
+                    <div class="empty-div"></div>
+            <div class="max-width">
+                <div class="last-comment">
+                    <div>@good.LastComment.Content</div>
+                    <div class="flex-display">
+                        @for (int i = 0; i < @good.LastComment.Rating; i++)
+                        {
+                            <div class="star-used">&#11088</div>
+                        }
+                        @if(@good.LastComment.Rating != 0){
+                            @for (int i = 0; i < 5 - @good.LastComment.Rating; i++)
+                            {
+                                <div class="star-not-used">&#11088</div>
+                            }
+                        }
+
+                    </div>
+                </div>
+                <a asp-controller="Home" asp-action="Comments" asp-route-id="@good.Good.Id" title="Показать еще">Показать еще</a>
             </div>
+        </div>
     }
 </div>
 

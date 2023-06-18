@@ -9,18 +9,18 @@
     }
     @foreach (var comment in Model.Comments)
     {
-        <div class="good">
+        <div class="comment">
             <div>
                 <div>@comment.Content</div>
             </div>
             <div class="flex-display">
-                @for (int i = 0; i < 5; i++)
+                @for (int i = 0; i < @comment.Rating; i++)
                 {
-                    <div>&#11088</div>
+                    <div class="star-used">&#11088</div>
                 }
                 @for (int i = 0; i < 5 - @comment.Rating; i++)
                 {
-                    <div>&#9956</div>
+                    <div class="star-not-used">&#11088</div>
                 }
             </div>
             @Html.AntiForgeryToken()

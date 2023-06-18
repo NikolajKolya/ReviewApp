@@ -27,11 +27,15 @@ namespace ReviewApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = new IndexViewModel()
+            var goods = await _goodsService.GetAllGoodsAsync();
+            var viewModels = await Task.WhenAll(goods.Select(async good =>
             {
-                Goods = (await _goodsService.GetAllGoodsAsync())
-                    .Select(g => new GoodViewModel() { Good = g })
-                    .ToList()
+                var comment = await _commentsService.GetLastCommentsAsync(good.Id);
+                return new GoodViewModel { Good = good, LastComment = comment };
+            }));
+            IndexViewModel model = new IndexViewModel()
+            {
+                Goods = viewModels
             };
             return View(model);
         }
@@ -39,7 +43,7 @@ namespace ReviewApp.Controllers
         [HttpGet]
         public async Task<IActionResult> AddGood()
         {
-            var model = new GoodViewModel()
+            var model = new AddGoodViewModel()
             {
                 Good = new GoodDto()
                 {
@@ -75,8 +79,7 @@ namespace ReviewApp.Controllers
                 GoodName = good.Name,
                 Comment = new CommentDto()
                 {
-                    Content = string.Empty,
-                    Rating = 5
+                    Content = string.Empty
                 }
             };
 
@@ -97,7 +100,7 @@ namespace ReviewApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddGoodPost(GoodViewModel model)
+        public async Task<IActionResult> AddGoodPost(AddGoodViewModel model)
         {
             if (!ModelState.IsValid)
             {

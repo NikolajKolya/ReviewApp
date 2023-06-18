@@ -2,5 +2,5 @@
 
 public class IndexViewModel
 {
-    public List<GoodViewModel> Goods { get; set; }
+    public ReviewApp.Models.ViewModels.GoodViewModel[] Goods { get; set; }
 }

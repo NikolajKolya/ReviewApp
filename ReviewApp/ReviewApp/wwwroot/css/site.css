@@ -95,6 +95,33 @@ h2 {
   padding-bottom: 0.5rem;
 }
 
+.comment{
+  background-color: hsl(176, 26%, 74%);
+  border: #0a58ca 0.1rem dashed;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.last-comment{
+  background-color: hsla(257, 14%, 64%, 0.25);
+  width: auto;
+  border: #0a58ca 0.1rem dashed;
+  border-radius: 0.5rem;
+  margin-top: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.max-width{
+  width: 100%;
+}
+
 .add-good-elements {
   display: flex;
   justify-content: center;
@@ -121,4 +148,29 @@ h2 {
 
 .full-width {
   width: 100%;
+}
+
+.empty-div{
+  height: 1rem;
+  width: auto;
+}
+
+.star-used{
+  height: 3rem;
+  width: auto;
+  cursor: default;
+}
+
+.star-not-used{
+  height: 3rem;
+  width: auto;
+  opacity: 0.3;
+  cursor: default;
+}
+
+.star-not-used:hover{
+  height: 3rem;
+  width: auto;
+  opacity: 0.5;
+  cursor: default;
 }

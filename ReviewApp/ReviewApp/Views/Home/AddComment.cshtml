@@ -6,16 +6,18 @@
 
 <form asp-controller="Home" asp-action="AddCommentPost" method="post" class="add-comment-form">
     <div class="full-width">
-        <div asp-validation-summary="All" class="validation-summary"></div>
         
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
         <label asp-for="Comment.Content"></label>:
         <textarea asp-for="Comment.Content" class="full-width"></textarea>
 
-        <input asp-for="Comment.Rating" type="hidden" value="5"/>
+        <label asp-for="Comment.Rating"></label>:
+        <input asp-for="Comment.Rating" type="hidden" id="rating"/>
 
         <input asp-for="GoodId" type="hidden" value="@Model.GoodId"/>
         <input asp-for="GoodName" type="hidden" value="@Model.GoodName"/>
-
+        <div class="placeForStars"></div>
         <div>
             <button class="add-comment-button" type="submit" id="button">Добавить</button>
         </div>
