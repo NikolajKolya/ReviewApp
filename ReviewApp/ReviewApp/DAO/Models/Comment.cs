@@ -12,4 +12,6 @@ public class Comment
     public string Content { get; set; }
     
     public int Rating { get; set; }
+
+    public DateTime CreationTime { get; set; }
 }

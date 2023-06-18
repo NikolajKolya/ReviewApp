@@ -55,7 +55,7 @@ namespace ReviewApp.Controllers
             return View(model);
         }
         
-        [Route("Home/Comments/{id}")]
+        [Route("Home/Goods/{id}/Comments")]
         [HttpGet]
         public async Task<IActionResult> Comments(Guid id)
         {

@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\images\\delete.png",
+      "PackagePath": "staticwebassets\\images\\delete.png"
+    },
+    {
+      "Id": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\js\\AddStars.js",
+      "PackagePath": "staticwebassets\\js\\AddStars.js"
+    },
+    {
       "Id": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

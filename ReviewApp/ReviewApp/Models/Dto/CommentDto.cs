@@ -18,4 +18,8 @@ public class CommentDto
     [DataType(DataType.Text)]
     [Display(Name = "Оценка")]
     public int Rating { get; set; }
+    
+    [DataType(DataType.DateTime)]
+    [Display(Name = "Время")]
+    public DateTime CreationTime { get; set; }
 }

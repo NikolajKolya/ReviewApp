@@ -17,7 +17,7 @@
 
         <input asp-for="GoodId" type="hidden" value="@Model.GoodId"/>
         <input asp-for="GoodName" type="hidden" value="@Model.GoodName"/>
-        <div class="placeForStars"></div>
+        <div class="place-for-stars" id="stars-container"></div>
         <div>
             <button class="add-comment-button" type="submit" id="button">Добавить</button>
         </div>
@@ -25,3 +25,8 @@
 
     @Html.AntiForgeryToken()
 </form>
+
+@section Scripts
+{
+    <script src="~/js/AddStars.js" asp-append-version="true"></script>
+}

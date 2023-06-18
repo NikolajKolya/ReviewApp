@@ -18,22 +18,34 @@ public class CommentsMapper : ICommentsMapper
 
     public CommentDto Map(Comment comment)
     {
+        if (comment == null)
+        {
+            return null;
+        }
+        
         return new CommentDto()
         {
             Id = comment.Id,
             Content = comment.Content,
-            Rating = comment.Rating
+            Rating = comment.Rating,
+            CreationTime = comment.CreationTime
         };
     }
 
     public Comment Map(CommentDto comment)
     {
+        if (comment == null)
+        {
+            return null;
+        }
+        
         return new Comment()
         {
             Id = comment.Id,
             Good = null, // Нужно заполнить извне, после маппинга
             Content = comment.Content,
-            Rating = comment.Rating
+            Rating = comment.Rating,
+            CreationTime = comment.CreationTime
         };
     }
 
