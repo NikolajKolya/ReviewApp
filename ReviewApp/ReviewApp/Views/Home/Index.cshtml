@@ -7,12 +7,15 @@
     {
         <div class="good">
             <div>
-                <div class="flex-display">
+                <div class="flex-display gapped-flex-display">
+                    <div>
+                        <img class="good-image-small" src="/images/good.png" alt="Товар" />
+                    </div>
                     <div>
                         <div class="good-name">@good.Good.Name</div>
                         <div class="good-description">@good.Good.Description</div>
                     </div>
-                    
+
                     <div class="time-span-and-add-comment-link">
                         <div >@good.Good.TimeSpan</div>
                         <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Good.Id" title="Добавить отзыв">Добавить отзыв</a>
@@ -57,7 +60,7 @@
                             </div>
                         }
                     </div>
-                    <a asp-controller="Home" asp-action="Comments" asp-route-id="@good.Good.Id" title="Показать еще">Показать еще</a>
+                    <a asp-controller="Home" asp-action="Comments" asp-route-goodId="@good.Good.Id" title="Показать еще">Показать еще</a>
                 </div>
         </div>
     }

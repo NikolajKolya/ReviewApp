@@ -70,8 +70,12 @@ h2 {
   font-size: 1rem;
 }
 
-.flex-display{
+.flex-display {
   display: flex;
+}
+
+.flex-display.gapped-flex-display {
+  gap: 1rem;
 }
 
 /* Good name */
@@ -175,4 +179,18 @@ h2 {
 .signature {
   font-size: 0.8rem;
   color: hsl(216, 90%, 39%);
+}
+
+.good-image-small {
+  width: 5rem;
+  height: 5rem;
+  border: 0.2rem solid hsl(240, 100%, 50%);
+  border-radius: 0.5rem;
+}
+
+.good-image-big {
+  width: 20rem;
+  height: 20rem;
+  border: 0.2rem solid hsl(240, 100%, 50%);
+  border-radius: 1.0rem;
 }

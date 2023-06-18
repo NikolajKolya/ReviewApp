@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using goods.DAO.Abstract;
+﻿using goods.DAO.Abstract;
 using goods.DAO.Models;
 using Microsoft.EntityFrameworkCore;
-using ReviewApp.Views.Home;
 
 namespace goods.DAO.Implementations;
 

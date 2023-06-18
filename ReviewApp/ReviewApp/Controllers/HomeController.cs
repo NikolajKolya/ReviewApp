@@ -55,13 +55,14 @@ namespace ReviewApp.Controllers
             return View(model);
         }
         
-        [Route("Home/Goods/{id}/Comments")]
+        [Route("Home/Goods/{goodId}/Comments")]
         [HttpGet]
-        public async Task<IActionResult> Comments(Guid id)
+        public async Task<IActionResult> Comments(Guid goodId)
         {
             var model = new CommentsViewModel()
             {
-                Comments = (await _commentsService.GetAllCommentsAsync(id))
+                Good = await _goodsService.GetGoodByIdAsync(goodId),
+                Comments = await _commentsService.GetAllCommentsAsync(goodId)
             };
             
             return View(model);

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NrmI/sJChELDPGpDQxQTw16bTiT5+a4qO/lVzJDn1sE=",
+  "Hash": "ovJh5vvZz4o73JXgdkjEWXvlk5OHnAgh5ytoVFbYR24=",
   "Source": "ReviewApp",
   "BasePath": "_content/ReviewApp",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\delete.png"
+    },
+    {
+      "Identity": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\images\\good.png",
+      "SourceId": "ReviewApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\",
+      "BasePath": "_content/ReviewApp",
+      "RelativePath": "images/good.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\good.png"
     },
     {
       "Identity": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\js\\AddStars.js",
