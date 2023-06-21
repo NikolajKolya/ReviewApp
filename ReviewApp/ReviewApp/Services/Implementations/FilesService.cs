@@ -56,4 +56,9 @@ public class FilesService : IFilesService
 
         return new Tuple<string, byte[]>(file.FileType, Convert.FromBase64String(file.EncodedFile));
     }
+
+    public async Task RemoveFileByIdAsync(Guid fileId)
+    {
+        await _filesDao.DeleteFileByIdAsync(fileId);
+    }
 }

@@ -18,4 +18,6 @@ public interface IFilesService
     /// Tuple.Item2 - file content
     /// </summary>
     Task<Tuple<string, byte[]>> GetFileByIdAsync(Guid fileId);
+    
+    Task RemoveFileByIdAsync(Guid fileId);
 }

@@ -7,4 +7,6 @@ public interface IFilesDao
     Task AddFileAsync(File file);
 
     Task<File> GetFileByIdAsync(Guid fileId);
+    
+    Task DeleteFileByIdAsync(Guid fileId);
 }

@@ -57,6 +57,8 @@ public class GoodsService : IGoodsService
 
     public async Task RemoveGoodAsync(Guid id)
     {
+        var good = await _goodsDao.GetGoodByIdAsync(id);
         await _goodsDao.RemoveGoodAsync(id);
+        await _filesService.RemoveFileByIdAsync(good.PhotoFileId);
     }
 }
