@@ -1,5 +1,4 @@
-﻿using goods.Mappers.Abstract;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
 using System.Linq;
@@ -108,7 +107,7 @@ namespace ReviewApp.Controllers
                 return View("AddGood", model);
             }
 
-            await _goodsService.AddGoodAsync(model.Good);
+            await _goodsService.AddGoodAsync(model.Good, model.PostedFile);
             
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }

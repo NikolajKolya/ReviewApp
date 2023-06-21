@@ -1,7 +1,5 @@
-﻿using goods.DAO;
-using goods.DAO.Abstract;
-using goods.DAO.Models;
-using goods.Mappers.Abstract;
+﻿using ReviewApp.DAO.Abstract;
+using ReviewApp.Mappers.Abstract;
 using ReviewApp.Models.Dto;
 using ReviewApp.Services.Abstract;
 

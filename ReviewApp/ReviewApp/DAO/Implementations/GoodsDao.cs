@@ -1,12 +1,8 @@
-﻿using goods.DAO.Abstract;
-using goods.DAO.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using ReviewApp.DAO.Abstract;
+using ReviewApp.DAO.Models;
 
-namespace goods.DAO.Implementations
+namespace ReviewApp.DAO.Implementations
 {
     public class GoodsDao : IGoodsDao
     {
@@ -42,9 +38,9 @@ namespace goods.DAO.Implementations
 
         public async Task<Good> GetGoodByIdAsync(Guid id)
         {
-            return _mainDbContext
+            return await _mainDbContext
                 .Goods
-                .Single(g => g.Id == id);
+                .SingleOrDefaultAsync(g => g.Id == id);
         }
     }
 }

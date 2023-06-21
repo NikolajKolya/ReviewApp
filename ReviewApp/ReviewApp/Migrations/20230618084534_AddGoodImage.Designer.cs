@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReviewApp.DAO;
 
@@ -10,14 +11,16 @@ using ReviewApp.DAO;
 namespace ReviewApp.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230618084534_AddGoodImage")]
+    partial class AddGoodImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
 
-            modelBuilder.Entity("ReviewApp.DAO.Models.Comment", b =>
+            modelBuilder.Entity("goods.DAO.Models.Comment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,24 +45,7 @@ namespace ReviewApp.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("ReviewApp.DAO.Models.File", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EncodedFile")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FileType")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Files");
-                });
-
-            modelBuilder.Entity("ReviewApp.DAO.Models.Good", b =>
+            modelBuilder.Entity("goods.DAO.Models.Good", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,10 +54,10 @@ namespace ReviewApp.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EncodedFileImage")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PhotoFileId")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("TimeSpan")
@@ -82,9 +68,9 @@ namespace ReviewApp.Migrations
                     b.ToTable("Goods");
                 });
 
-            modelBuilder.Entity("ReviewApp.DAO.Models.Comment", b =>
+            modelBuilder.Entity("goods.DAO.Models.Comment", b =>
                 {
-                    b.HasOne("ReviewApp.DAO.Models.Good", "Good")
+                    b.HasOne("goods.DAO.Models.Good", "Good")
                         .WithMany()
                         .HasForeignKey("GoodId");
 

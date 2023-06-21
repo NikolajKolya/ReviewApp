@@ -1,8 +1,8 @@
-﻿using goods.DAO.Models;
-using goods.Mappers.Abstract;
+﻿using ReviewApp.DAO.Models;
+using ReviewApp.Mappers.Abstract;
 using ReviewApp.Models.Dto;
 
-namespace goods.Mappers.Implementations;
+namespace ReviewApp.Mappers.Implementations;
 
 public class CommentsMapper : ICommentsMapper
 {

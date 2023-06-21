@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace goods.DAO.Models;
+namespace ReviewApp.DAO.Models;
 
 public class Comment
 {

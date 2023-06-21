@@ -23,4 +23,6 @@ public class GoodDto
     [DataType(DataType.Text)]
     [Display(Name = "Время")]
     public DateTime TimeSpan { get; set; }
+
+    public Guid PhotoFileId { get; set; }
 }

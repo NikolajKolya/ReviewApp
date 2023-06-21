@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReviewApp.DAO;
 
@@ -10,9 +11,11 @@ using ReviewApp.DAO;
 namespace ReviewApp.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230621073414_AddedFilesTable")]
+    partial class AddedFilesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
@@ -68,10 +71,10 @@ namespace ReviewApp.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EncodedFileImage")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PhotoFileId")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("TimeSpan")

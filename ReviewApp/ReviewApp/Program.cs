@@ -1,9 +1,9 @@
-using goods.DAO;
-using goods.DAO.Abstract;
-using goods.DAO.Implementations;
-using goods.Mappers.Abstract;
-using goods.Mappers.Implementations;
 using Microsoft.EntityFrameworkCore;
+using ReviewApp.DAO;
+using ReviewApp.DAO.Abstract;
+using ReviewApp.DAO.Implementations;
+using ReviewApp.Mappers.Abstract;
+using ReviewApp.Mappers.Implementations;
 using ReviewApp.Services.Abstract;
 using ReviewApp.Services.Implementations;
 
@@ -22,9 +22,11 @@ namespace ReviewApp
 
             #region Scoped
 
+            builder.Services.AddScoped<IFilesDao, FilesDao>();
             builder.Services.AddScoped<IGoodsDao, GoodsDao>();
             builder.Services.AddScoped<ICommentsDao, CommentsDao>();
             builder.Services.AddScoped<IGoodsService, GoodsService>();
+            builder.Services.AddScoped<IFilesService, FilesService>();
             builder.Services.AddScoped<ICommentsService, CommentsService>();
 
             #endregion

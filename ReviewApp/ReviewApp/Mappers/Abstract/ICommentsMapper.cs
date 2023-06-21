@@ -1,7 +1,7 @@
-﻿using goods.DAO.Models;
+﻿using ReviewApp.DAO.Models;
 using ReviewApp.Models.Dto;
 
-namespace goods.Mappers.Abstract;
+namespace ReviewApp.Mappers.Abstract;
 
 public interface ICommentsMapper
 {

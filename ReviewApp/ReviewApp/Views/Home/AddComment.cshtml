@@ -5,7 +5,7 @@
 <h2>Товар: @Model.GoodName</h2>
 
 <div class="centrally-aligned">
-    <img class="good-image-big" src="/images/good.png" alt="Товар" />
+    <img class="good-image-big" src="/Files/GoodImage/@Model.GoodId" alt="Товар" />
 </div>
 
 <form asp-controller="Home" asp-action="AddCommentPost" method="post" class="add-comment-form">

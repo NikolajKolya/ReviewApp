@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using goods.DAO.Models;
+﻿using ReviewApp.DAO.Models;
 
-namespace goods.DAO.Abstract
+namespace ReviewApp.DAO.Abstract
 {
     public interface IGoodsDao
     {

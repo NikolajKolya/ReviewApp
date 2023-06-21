@@ -1,8 +1,8 @@
-﻿using goods.DAO.Abstract;
-using goods.DAO.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ReviewApp.DAO.Abstract;
+using ReviewApp.DAO.Models;
 
-namespace goods.DAO.Implementations;
+namespace ReviewApp.DAO.Implementations;
 
 public class CommentsDao : ICommentsDao
 {

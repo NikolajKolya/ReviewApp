@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using goods.DAO.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ReviewApp.DAO.Models;
+using File = ReviewApp.DAO.Models.File;
 
-namespace goods.DAO
+namespace ReviewApp.DAO
 {
     public class MainDbContext : DbContext
     {
@@ -26,5 +22,7 @@ namespace goods.DAO
         public DbSet<Good> Goods { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
+        
+        public DbSet<File> Files { get; set; }
     }
 }

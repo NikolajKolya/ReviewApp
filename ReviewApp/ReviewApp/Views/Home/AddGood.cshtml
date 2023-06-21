@@ -2,7 +2,7 @@
 
 <h1>Добавление товара</h1>
 
-<form asp-controller="Home" asp-action="AddGoodPost" method="post">
+<form asp-controller="Home" asp-action="AddGoodPost" method="post" enctype="multipart/form-data">
     
     <div class="validation-summary" asp-validation-summary="All"></div>
     
@@ -15,9 +15,16 @@
         <div><label asp-for="Good.Description"></label>:</div>
         <div><textarea class="full-width" asp-for="Good.Description"></textarea></div>
     </div>
+    <span>Select File:</span> 
+    
+    <input type="file" asp-for="PostedFile" />
+
+    <br />
+    
     <div>
         <button class="generic-button" type="submit">Добавить</button>
     </div>
     
+    <span>@Html.Raw(ViewBag.Message)</span> 
     @Html.AntiForgeryToken()
 </form>

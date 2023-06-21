@@ -8,7 +8,7 @@ public interface IGoodsService
     /// <summary>
     /// Add good to DB
     /// </summary>
-    Task AddGoodAsync(GoodDto good);
+    Task AddGoodAsync(GoodDto good, IFormFile photo);
 
     Task RemoveGoodAsync(Guid id);
 

@@ -1,16 +1,12 @@
-﻿using goods.Mappers.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReviewApp.DAO.Models;
+using ReviewApp.Mappers.Abstract;
 using ReviewApp.Models.Dto;
 
-namespace goods.Mappers.Implementations
+namespace ReviewApp.Mappers.Implementations
 {
     public class GoodsMapper : IGoodsMapper
     {
-        public IReadOnlyCollection<GoodDto> Map(IEnumerable<DAO.Models.Good> goods)
+        public IReadOnlyCollection<GoodDto> Map(IEnumerable<Good> goods)
         {
             if (goods == null)
             {
@@ -20,7 +16,7 @@ namespace goods.Mappers.Implementations
             return goods.Select(n => Map(n)).ToList();
         }
 
-        public GoodDto Map(DAO.Models.Good good)
+        public GoodDto Map(Good good)
         {
             if (good == null)
             {
@@ -32,27 +28,29 @@ namespace goods.Mappers.Implementations
                 Id = good.Id,
                 Name = good.Name,
                 Description = good.Description,
-                TimeSpan = good.TimeSpan
+                TimeSpan = good.TimeSpan,
+                PhotoFileId = good.PhotoFileId
             };
         }
 
-        public DAO.Models.Good Map(GoodDto good)
+        public Good Map(GoodDto good)
         {
             if (good == null)
             {
                 return null;
             }
 
-            return new DAO.Models.Good()
+            return new Good()
             {
                 Id = good.Id,
                 Name = good.Name,
                 Description = good.Description,
-                TimeSpan = good.TimeSpan
+                TimeSpan = good.TimeSpan,
+                PhotoFileId = good.PhotoFileId
             };
         }
 
-        public IReadOnlyCollection<DAO.Models.Good> Map(IEnumerable<GoodDto> goods)
+        public IReadOnlyCollection<Good> Map(IEnumerable<GoodDto> goods)
         {
             if (goods == null)
             {

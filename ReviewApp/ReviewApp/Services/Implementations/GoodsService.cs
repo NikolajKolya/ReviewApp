@@ -1,6 +1,5 @@
-﻿using goods.DAO.Abstract;
-using goods.DAO.Models;
-using goods.Mappers.Abstract;
+﻿using ReviewApp.DAO.Abstract;
+using ReviewApp.Mappers.Abstract;
 using ReviewApp.Models.Dto;
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
@@ -11,23 +10,36 @@ public class GoodsService : IGoodsService
 {
     private readonly IGoodsMapper _goodsMapper;
     private readonly IGoodsDao _goodsDao;
+    private readonly IFilesService _filesService;
 
     public GoodsService
     (
         IGoodsMapper goodsMapper,
-        IGoodsDao goodsDao
+        IGoodsDao goodsDao,
+        IFilesService filesService
     )
     {
         _goodsMapper = goodsMapper;
         _goodsDao = goodsDao;
+        _filesService = filesService;
     }
     
-    public async Task AddGoodAsync(GoodDto good)
+    public async Task AddGoodAsync(GoodDto good, IFormFile photo)
     {
         _ = good ?? throw new ArgumentNullException(nameof(good));
 
         var dbGood = _goodsMapper.Map(good);
         dbGood.TimeSpan = DateTime.UtcNow;
+        
+        // Сначала добавляем файл в базу
+        var fileId = await _filesService.AddFileAsync
+                (
+                    photo.ContentType,
+                    await _filesService.FileToBytesArrayAsync(photo)
+                );
+
+        dbGood.PhotoFileId = fileId;
+        
         await _goodsDao.AddGoodAsync(dbGood);
     }
 
