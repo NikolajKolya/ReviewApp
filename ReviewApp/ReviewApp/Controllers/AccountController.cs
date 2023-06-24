@@ -2,11 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ReviewApp.Models.ViewModels.AccountViewModels;
+using ReviewApp.Services.Abstract;
 
 namespace ReviewApp.Controllers;
 
-public class AccountController: Controller
+public class AccountController : Controller
 {
+    private readonly IAccountsService _accountsService;
+
+    public AccountController(IAccountsService accountsService)
+    {
+        _accountsService = accountsService;
+    }
+
     [AllowAnonymous]
     public async Task<IActionResult> Login()
     {
@@ -17,5 +25,47 @@ public class AccountController: Controller
     public async Task<IActionResult> Register()
     {
         return View(new RegisterViewModel());
+    }
+
+    [HttpPost]
+    [AllowAnonymous]
+    public async Task<IActionResult> RegisterPost(RegisterViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Тут регистрируем пользователя
+            var isSuccessful = await _accountsService.RegisterUserAsync(model.Login, model.Email, model.Password);
+
+            if (!isSuccessful)
+            {
+                ModelState.AddModelError(string.Empty, "Произошла ошибка регистрации!");
+                return View("Register", model);
+            }
+            
+            return RedirectToAction(nameof(AccountController.Login), "Account");
+        }
+
+        return View("Register", model);
+    }
+
+    [HttpPost]
+    [AllowAnonymous]
+    public async Task<IActionResult> LoginPost(LoginViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Тут мы входим на сайт
+            var isLoggedIn = await _accountsService.LogInAsync(model.Login, model.Password);
+
+            if (!isLoggedIn)
+            {
+                ModelState.AddModelError(string.Empty, "Неправильный логин или пароль!");
+                return View("Login", model);
+            }
+            
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        return View("Login", model);
     }
 }

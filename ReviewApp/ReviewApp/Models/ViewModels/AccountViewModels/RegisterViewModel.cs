@@ -11,6 +11,12 @@ public class RegisterViewModel
     public string Login { get; set; }
 
     [Required]
+    [StringLength(32, ErrorMessage = "Поле {0} должно быть как минимум {2} и как максимум {1} символов в длину.", MinimumLength = 5)]
+    [DataType(DataType.EmailAddress)]
+    [Display(Name = "Email")]
+    public string Email { get; set; }
+    
+    [Required]
     [StringLength(32, ErrorMessage = "Поле {0} должно быть как минимум {2} и как максимум {1} символов в длину.", MinimumLength = 8)]
     [DataType(DataType.Password)]
     [Display(Name = "Пароль")]
