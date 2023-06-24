@@ -2,6 +2,7 @@
 using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using ReviewApp.Models.Dto;
 
 namespace ReviewApp.Controllers
@@ -23,7 +24,8 @@ namespace ReviewApp.Controllers
             _goodsService = goodsService;
             _commentsService = commentsService;
         }
-
+        
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var goods = await _goodsService.GetAllGoodsAsync();
@@ -54,6 +56,7 @@ namespace ReviewApp.Controllers
             return View(model);
         }
         
+        [AllowAnonymous]
         [Route("Home/Goods/{goodId}/Comments")]
         [HttpGet]
         public async Task<IActionResult> Comments(Guid goodId)

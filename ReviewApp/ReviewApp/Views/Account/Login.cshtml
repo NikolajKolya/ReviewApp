@@ -1,0 +1,29 @@
+﻿@model ReviewApp.Models.ViewModels.AccountViewModels.LoginViewModel
+
+<h1>Вход на сайт</h1>
+
+<div>
+    Ещё не зарегистрированы? <a asp-controller="Account" asp-action="Register">Регистрация</a>
+</div>
+
+<div>
+    <form method="post" asp-controller="Account" asp-action="LoginPost">
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div>
+            <label asp-for="Login"></label>
+            <input asp-for="Login" />
+            <span asp-validation-for="Login"></span>
+        </div>
+
+        <div>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        
+        <div>
+            <button type="submit">Войти</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+﻿@model ReviewApp.Models.ViewModels.AccountViewModels.RegisterViewModel
+
+<h1>Регистрация на сайте</h1>
+
+<form asp-controller="Account" asp-action="RegisterPost" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="Login"></label>
+        <input asp-for="Login" />
+        <span asp-validation-for="Login"></span>
+    </div>
+
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+
+    <button type="submit">Зарегистрироваться</button>
+
+    @Html.AntiForgeryToken()
+</form>

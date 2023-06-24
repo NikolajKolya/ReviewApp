@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReviewApp.Services.Abstract;
 
@@ -22,6 +23,7 @@ public class FilesController : Controller
     /// <summary>
     /// Download a file
     /// </summary>
+    [AllowAnonymous]
     [HttpGet]
     [Route("Files/GoodImage/{goodId}")]
     public async Task<IActionResult> Download(Guid goodId)
