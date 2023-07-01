@@ -3,6 +3,7 @@ using ReviewApp.Models.ViewModels;
 using ReviewApp.Services.Abstract;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using ReviewApp.Constants;
 using ReviewApp.Models.Dto;
 
 namespace ReviewApp.Controllers
@@ -42,6 +43,7 @@ namespace ReviewApp.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdminRoleName)]
         public async Task<IActionResult> AddGood()
         {
             var model = new AddGoodViewModel()
@@ -103,6 +105,7 @@ namespace ReviewApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdminRoleName)]
         public async Task<IActionResult> AddGoodPost(AddGoodViewModel model)
         {
             if (!ModelState.IsValid)
@@ -116,6 +119,7 @@ namespace ReviewApp.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdminRoleName)]
         public async Task<IActionResult> RemoveGood(Guid id)
         {
             await _goodsService.RemoveGoodAsync(id);
@@ -123,5 +127,10 @@ namespace ReviewApp.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
         
+        [AllowAnonymous]
+        public async Task<IActionResult> Error()
+        {
+            return View(new ErrorViewModel());
+        }
     }
 }

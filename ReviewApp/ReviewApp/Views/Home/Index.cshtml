@@ -1,4 +1,10 @@
-﻿@model ReviewApp.Models.ViewModels.IndexViewModel
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using ReviewApp.Constants
+@using ReviewApp.Models
+@model ReviewApp.Models.ViewModels.IndexViewModel
+
+@inject SignInManager<User> SignInManager
 
 <h1>Товары:</h1>
 
@@ -21,14 +27,17 @@
                         <a asp-controller="Home" asp-action="AddComment" asp-route-id="@good.Good.Id" title="Добавить отзыв">Добавить отзыв</a>
                     </div>
 
-                    <form asp-controller="Home" asp-action="RemoveGood" method="post">
-                        <button class="delete-button" type="submit">
-                            <img class="delete-button-picture" src="/images/delete.png" alt="x"/>
-                        </button>
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole(GlobalConstants.AdminRoleName))
+                    {
+                        <form asp-controller="Home" asp-action="RemoveGood" method="post">
+                            <button class="delete-button" type="submit">
+                                <img class="delete-button-picture" src="/images/delete.png" alt="x"/>
+                            </button>
 
-                        <input type="hidden" name="id" value="@good.Good.Id"/>
-                        @Html.AntiForgeryToken()
-                    </form>
+                            <input type="hidden" name="id" value="@good.Good.Id"/>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    }
                 </div>
             </div>
                     
@@ -69,4 +78,7 @@
     }
 </div>
 
-<a asp-controller="Home" asp-action="AddGood" title="Добавить товар">Добавить товар</a>
+@if (SignInManager.IsSignedIn(User) && User.IsInRole(GlobalConstants.AdminRoleName))
+{
+    <a asp-controller="Home" asp-action="AddGood" title="Добавить товар">Добавить товар</a>
+}

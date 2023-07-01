@@ -88,4 +88,10 @@ public class AccountController : Controller
     {
         return RedirectToAction(nameof(HomeController.Index), "Home");
     }
+    
+    [AllowAnonymous]
+    public async Task<IActionResult> AccessDenied()
+    {
+        return View(new AccessDeniedViewModel());
+    }
 }

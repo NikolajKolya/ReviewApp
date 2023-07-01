@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ReviewApp.Constants;
 using ReviewApp.Models;
 using ReviewApp.Services.Abstract;
 
@@ -8,14 +9,17 @@ public class AccountsService : IAccountsService
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
     public AccountsService
     (
         UserManager<User> userManager,
-        SignInManager<User> signInManager)
+        SignInManager<User> signInManager,
+        RoleManager<IdentityRole> roleManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _roleManager = roleManager;
     }
     
     public async Task<bool> RegisterUserAsync(string login, string email, string password)
@@ -43,6 +47,23 @@ public class AccountsService : IAccountsService
         if (!result.Succeeded)
         {
             return false;
+        }
+
+        if (login == GlobalConstants.AdminLogin)
+        {
+            // А существует-ли вообще администраторская роль?
+            if (!(await _roleManager.RoleExistsAsync(GlobalConstants.AdminRoleName)))
+            {
+                if (!(await _roleManager.CreateAsync(new IdentityRole(GlobalConstants.AdminRoleName))).Succeeded)
+                {
+                    throw new InvalidOperationException($"Failed to create a role with a name { GlobalConstants.AdminRoleName }");
+                }
+            }
+            
+            if (!(await _userManager.AddToRoleAsync(user, GlobalConstants.AdminRoleName)).Succeeded)
+            {
+                throw new InvalidOperationException($"Failed to add user { user.UserName } to role { GlobalConstants.AdminRoleName }");
+            }
         }
 
         return true;
