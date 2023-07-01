@@ -204,3 +204,8 @@ h2 {
   border: 0.2rem solid hsl(240, 100%, 50%);
   border-radius: 1.0rem;
 }
+
+header{
+  padding: 0.5rem;
+  background-color: hsl(205, 99%, 63%);
+}

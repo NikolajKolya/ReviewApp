@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,8 +9,22 @@
     <link rel="stylesheet" href="~/ReviewApp.styles.css" asp-append-version="true" />
 </head>
 <body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <header>
+            <span>Добро пожаловать @User.Identity.Name!</span>
+            <a asp-controller="Account" asp-action="LogOut" title="Выйти">Выйти</a>
+        </header>
+    }
+    else
+    {
+        <header>
+            <a asp-controller="Account" asp-action="Login" title="Войти">Войти</a>
+            <a asp-controller="Account" asp-action="Register" title="Зарегистрироваться">Зарегистрироваться</a>
+        </header>
+    }
 
-    <div>
+<div>
         @RenderBody()
     </div>
 

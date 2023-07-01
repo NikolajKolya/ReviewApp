@@ -14,4 +14,6 @@ public interface IAccountsService
     /// Вход на сайт
     /// </summary>
     Task<bool> LogInAsync(string login, string password);
+    
+    Task LogOutAsync();
 }

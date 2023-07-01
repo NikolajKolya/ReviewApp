@@ -60,4 +60,9 @@ public class AccountsService : IAccountsService
 
         return result.Succeeded;
     }
+
+    public async Task LogOutAsync()
+    {
+        await _signInManager.SignOutAsync();
+    }
 }

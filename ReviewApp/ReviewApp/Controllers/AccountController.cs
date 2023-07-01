@@ -26,6 +26,12 @@ public class AccountController : Controller
     {
         return View(new RegisterViewModel());
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> LogOut()
+    {
+        return View(null);
+    }
 
     [HttpPost]
     [AllowAnonymous]
@@ -67,5 +73,19 @@ public class AccountController : Controller
         }
 
         return View("Login", model);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> LogOutPost()
+    {
+        await _accountsService.LogOutAsync();
+
+        return RedirectToAction(nameof(HomeController.Index), "Home");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> GoBackPost()
+    {
+        return RedirectToAction(nameof(HomeController.Index), "Home");
     }
 }
