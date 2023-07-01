@@ -31,8 +31,9 @@ namespace ReviewApp.DAO.Implementations
 
         public async Task RemoveGoodAsync(Guid id)
         {
-
             var good = await GetGoodByIdAsync(id);
+
+            _mainDbContext.Comments.RemoveRange(good.Comments);
             _mainDbContext.Remove(good);
             await _mainDbContext.SaveChangesAsync();
         }
@@ -47,7 +48,8 @@ namespace ReviewApp.DAO.Implementations
 
         public async Task AddCommentToGoodAsync(Good good, Comment comment)
         {
-            comment.ParentGood = good;
+            comment.Good = good;
+            comment.CreationTime = DateTime.UtcNow;
             good.Comments.Add(comment);
             await _mainDbContext.SaveChangesAsync();
         }

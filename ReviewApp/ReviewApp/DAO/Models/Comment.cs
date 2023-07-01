@@ -14,6 +14,4 @@ public class Comment
     public int Rating { get; set; }
 
     public DateTime CreationTime { get; set; }
-
-    public Good ParentGood { get; set; }
 }

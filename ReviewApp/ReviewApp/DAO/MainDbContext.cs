@@ -24,12 +24,12 @@ namespace ReviewApp.DAO
             modelBuilder
                 .Entity<Good>()
                 .HasMany(g => g.Comments)
-                .WithOne(c => c.ParentGood);
+                .WithOne(c => c.Good);
         }
 
         public DbSet<Good> Goods { get; set; }
 
-        /*public DbSet<Comment> Comments { get; set; }*/
+        public DbSet<Comment> Comments { get; set; }
         
         public DbSet<File> Files { get; set; }
     }
