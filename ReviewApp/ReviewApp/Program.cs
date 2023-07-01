@@ -28,7 +28,6 @@ namespace ReviewApp
 
             builder.Services.AddScoped<IFilesDao, FilesDao>();
             builder.Services.AddScoped<IGoodsDao, GoodsDao>();
-            builder.Services.AddScoped<ICommentsDao, CommentsDao>();
             builder.Services.AddScoped<IGoodsService, GoodsService>();
             builder.Services.AddScoped<IFilesService, FilesService>();
             builder.Services.AddScoped<ICommentsService, CommentsService>();

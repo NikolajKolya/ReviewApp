@@ -13,5 +13,7 @@ namespace ReviewApp.DAO.Models
         public DateTime TimeSpan { get; set; }
         
         public Guid PhotoFileId { get; set; }
+
+        public IList<Comment> Comments { get; set; }
     }
 }

@@ -18,10 +18,18 @@ namespace ReviewApp.DAO
             // Connect to sqlite database
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<Good>()
+                .HasMany(g => g.Comments)
+                .WithOne(c => c.ParentGood);
+        }
+
         public DbSet<Good> Goods { get; set; }
 
-        public DbSet<Comment> Comments { get; set; }
+        /*public DbSet<Comment> Comments { get; set; }*/
         
         public DbSet<File> Files { get; set; }
     }

@@ -11,5 +11,7 @@ namespace ReviewApp.DAO.Abstract
         Task<IReadOnlyCollection<Good>> GetAllGoodsAsync();
 
         Task<Good> GetGoodByIdAsync(Guid id);
+
+        Task AddCommentToGoodAsync(Good good, Comment comment);
     }
 }

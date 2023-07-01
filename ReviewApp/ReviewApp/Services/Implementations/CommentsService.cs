@@ -8,15 +8,13 @@ namespace ReviewApp.Services.Implementations;
 public class CommentsService : ICommentsService
 {
     private readonly IGoodsDao _goodsDao;
-    private readonly ICommentsDao _commentsDao;
     private readonly ICommentsMapper _commentsMapper;
 
 
-    public CommentsService(IGoodsDao goodsDao, ICommentsDao commentsDao, ICommentsMapper commentsMapper)
+    public CommentsService(IGoodsDao goodsDao, ICommentsMapper commentsMapper)
     {
         _goodsDao = goodsDao;
         _commentsMapper = commentsMapper;
-        _commentsDao = commentsDao;
     }
     
     public async Task AddCommentToGoodAsync(CommentDto comment, Guid goodId)
@@ -28,18 +26,21 @@ public class CommentsService : ICommentsService
         _ = good ?? throw new ArgumentException(nameof(goodId));
 
         var commentDb = _commentsMapper.Map(comment);
-        commentDb.Good = good;
-        
-        await _commentsDao.AddCommentAsync(commentDb);
+
+        await _goodsDao.AddCommentToGoodAsync(good, commentDb);
     }
 
     public async Task<IReadOnlyCollection<CommentDto>> GetAllCommentsAsync(Guid goodId)
     {
-        return _commentsMapper.Map(await _commentsDao.GetAllCommentsAsync(goodId));
+        return _commentsMapper.Map((await _goodsDao.GetGoodByIdAsync(goodId)).Comments);
     }
 
     public async Task<CommentDto> GetLastCommentsAsync(Guid goodId)
     {
-        return _commentsMapper.Map(await _commentsDao.GetLastCommentsAsync(goodId));
+        var lastComment = (await _goodsDao.GetGoodByIdAsync(goodId))
+            .Comments
+            .MaxBy(c => c.CreationTime);
+        
+        return _commentsMapper.Map(lastComment);
     }
 }

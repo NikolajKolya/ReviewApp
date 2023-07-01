@@ -24,6 +24,7 @@ namespace ReviewApp.DAO.Implementations
         {
             return _mainDbContext
                 .Goods
+                .Include(g => g.Comments)
                 .OrderByDescending(b => b.TimeSpan)
                 .ToList();
         }
@@ -40,7 +41,15 @@ namespace ReviewApp.DAO.Implementations
         {
             return await _mainDbContext
                 .Goods
+                .Include(g => g.Comments)
                 .SingleOrDefaultAsync(g => g.Id == id);
+        }
+
+        public async Task AddCommentToGoodAsync(Good good, Comment comment)
+        {
+            comment.ParentGood = good;
+            good.Comments.Add(comment);
+            await _mainDbContext.SaveChangesAsync();
         }
     }
 }
