@@ -1,0 +1,14 @@
+﻿version: '3'
+
+services:
+
+  reviewapp-migrator:
+    image: reviewapp-migrator:latest
+    container_name: reviewapp-migrator
+
+    networks:
+      - reviewapp-net
+
+networks:
+  reviewapp-net:
+    driver: bridge

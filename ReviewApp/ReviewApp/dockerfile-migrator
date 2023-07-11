@@ -1,0 +1,20 @@
+﻿# syntax=docker/dockerfile:1
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /app
+
+# Installing Entity Framework (for migrations)
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . .
+RUN dotnet publish -c Release -o out
+
+# Run
+COPY ./migrator.sh /bin/migrator.sh
+RUN chmod +x /bin/migrator.sh
+ENTRYPOINT ["/bin/bash", "/bin/migrator.sh"]

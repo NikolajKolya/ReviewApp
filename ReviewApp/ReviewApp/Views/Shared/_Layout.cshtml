@@ -18,7 +18,7 @@
     <a asp-controller="Home" asp-action="Index" class="margin-header" title="Главная">Главная</a>
     @if (SignInManager.IsSignedIn(User))
     {
-        <span class="margin-header">Добро пожаловать @User.Identity.Name!</span>
+        <span class="margin-header centrally-aligned">Добро пожаловать @User.Identity.Name!</span>
         <a asp-controller="Account" asp-action="LogOut" class="margin-header" title="Выйти">Выйти</a>
     }
     else

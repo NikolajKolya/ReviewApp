@@ -1,0 +1,19 @@
+﻿version: '3'
+
+services:
+
+  reviewapp:
+    image: reviewapp:latest
+    container_name: reviewapp
+    restart: always
+
+    ports:
+      - 127.0.0.1:5191:80
+
+    networks:
+      - reviewapp-net
+
+networks:
+  reviewapp-net:
+    driver: bridge
+    external: true
