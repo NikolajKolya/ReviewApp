@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ReviewApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\css\\account.css",
+      "PackagePath": "staticwebassets\\css\\account.css"
+    },
+    {
       "Id": "C:\\Users\\Kaludjerovic\\Desktop\\Lessons\\ReviewApp\\ReviewApp\\ReviewApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

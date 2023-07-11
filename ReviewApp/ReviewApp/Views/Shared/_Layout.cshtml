@@ -14,16 +14,17 @@
     <link rel="stylesheet" href="~/ReviewApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="right-aligned">
+    <header class="right-aligned header">
+    <a asp-controller="Home" asp-action="Index" class="margin-header" title="Главная">Главная</a>
     @if (SignInManager.IsSignedIn(User))
     {
-        <span>Добро пожаловать @User.Identity.Name!</span>
-        <a asp-controller="Account" asp-action="LogOut" title="Выйти">Выйти</a>
+        <span class="margin-header">Добро пожаловать @User.Identity.Name!</span>
+        <a asp-controller="Account" asp-action="LogOut" class="margin-header" title="Выйти">Выйти</a>
     }
     else
     {
-        <a asp-controller="Account" asp-action="Login" title="Войти">Войти</a>
-        <a asp-controller="Account" asp-action="Register" title="Зарегистрироваться">Зарегистрироваться</a>
+        <a asp-controller="Account" asp-action="Login" class="margin-header" title="Войти">Войти</a>
+        <a asp-controller="Account" asp-action="Register" class="margin-header" title="Зарегистрироваться">Зарегистрироваться</a>
     }
     </header>
 

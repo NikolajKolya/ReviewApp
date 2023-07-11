@@ -1,0 +1,54 @@
+﻿.form-div{
+    border-radius: 1rem;
+    background-color: aliceblue;
+    width: 65%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form-inside{
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.margin-elements{
+    margin-top: 4rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.input-div{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-boxes{
+    border-radius: 100rem;
+    float: right;
+    width : 80%
+}
+
+.repeat-password-input{
+    border-radius: 100rem;
+    float: right;
+    width: 60%;
+}
+.account-button {
+    border-radius: 20rem;
+    background-color: hsl(193, 25%, 44%);
+    border: none;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.95rem;
+}
+
+@media screen and (max-width: 45rem) {
+    .form-div{
+        width:100%
+    }
+}

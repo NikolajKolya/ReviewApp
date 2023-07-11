@@ -1,35 +1,45 @@
 ﻿@model ReviewApp.Models.ViewModels.AccountViewModels.RegisterViewModel
 
+<head>
+    <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+</head>
+
 <h1>Регистрация на сайте</h1>
 
-<form asp-controller="Account" asp-action="RegisterPost" method="post">
-    <div asp-validation-summary="All"></div>
+<div class="form-div">
+    <form asp-controller="Account" asp-action="RegisterPost" method="post">
+        <div class="form-inside">
+            
+            <div class="input-div">
+                <div class="margin-elements">
+                    <label asp-for="Login"></label>
+                    <input asp-for="Login" class="input-boxes"/>
+                    <span asp-validation-for="Login"></span>
+                </div>
 
-    <div>
-        <label asp-for="Login"></label>
-        <input asp-for="Login" />
-        <span asp-validation-for="Login"></span>
-    </div>
-    
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
+                <div class="margin-elements">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="input-boxes"/>
+                    <span asp-validation-for="Email"></span>
+                </div>
 
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password"/>
-        <span asp-validation-for="Password"></span>
-    </div>
+                <div class="margin-elements">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="input-boxes"/>
+                    <span asp-validation-for="Password"></span>
+                </div>
 
-    <div>
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" />
-        <span asp-validation-for="ConfirmPassword"></span>
-    </div>
-
-    <button type="submit">Зарегистрироваться</button>
-
-    @Html.AntiForgeryToken()
-</form>
+                <div class="margin-elements">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="repeat-password-input"/>
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+            </div>
+            <div asp-validation-summary="All" class="validation-summary"></div>
+            <div class="centrally-aligned">
+                <button type="submit" class="account-button">Зарегистрироваться</button>
+            </div>
+        </div>
+        @Html.AntiForgeryToken()
+    </form>
+</div>
