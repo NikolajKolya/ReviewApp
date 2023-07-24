@@ -1,5 +1,5 @@
 Начинаем с миграций: docker build -f dockerfile-migrator -t reviewapp-migrator .
-Применяем миграции: docker-compose -f docker-compose-migrator.yml
+Применяем миграции: docker-compose up
 
 
-Сборка образа докера: docker build -f dockerfile -t reviewapp .
+Сборка образа докера: docker build -f dockerfile-reviewapp -t reviewapp .

@@ -10,10 +10,17 @@ services:
     ports:
       - 127.0.0.1:5191:80
 
+    volumes:
+      - reviewapp_database:/app/DatabaseRelease
+
     networks:
-      - reviewapp-net
+      - reviewapp_reviewapp-net
+
+volumes:
+  # Database reside here
+  reviewapp_database:
 
 networks:
-  reviewapp-net:
+  reviewapp_reviewapp-net:
     driver: bridge
     external: true

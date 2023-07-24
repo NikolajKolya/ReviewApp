@@ -6,8 +6,16 @@ services:
     image: reviewapp-migrator:latest
     container_name: reviewapp-migrator
 
+    volumes:
+      - reviewapp_database:/app/DatabaseRelease
+
     networks:
       - reviewapp-net
+
+volumes:
+
+  # Database reside here
+  reviewapp_database:
 
 networks:
   reviewapp-net:

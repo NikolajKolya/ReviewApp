@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 dotnet ef database update --context MainDbContext
 dotnet ef database update --context SecurityDbContext
